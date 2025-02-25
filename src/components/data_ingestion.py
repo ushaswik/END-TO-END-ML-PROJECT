@@ -9,6 +9,7 @@ from sklearn.model_selection import train_test_split
 from datetime import datetime
 
 from src.components.data_transformation import DataTransformation,DataTransformationConfig
+from src.components.model_training import ModelTrainer,ModelTrainerConfig
 
 @dataclass
 class DataIngestConfig:
@@ -56,6 +57,10 @@ if __name__ == "__main__":
 
     data_transformation=DataTransformation()
     train_arr,test_arr,_=data_transformation.initiate_data_transformation(train_data,test_data)
+    
+    modeltrainer = ModelTrainer()
+    print(modeltrainer.initiate_model_trainer(train_arr,test_arr))
+    
 
     
     
